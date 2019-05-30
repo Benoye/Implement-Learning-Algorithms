@@ -15,7 +15,7 @@ class OwnLinearRegression(object):
         """
         R^2
         """
-        y_hat = np.apply_along_axis(self._apply_model, 1, X, self.beta)
+        y_hat = np.apply_along_axis(self._apply_model, 1, X, self.beta).T
         u = np.sum((y - y_hat) ** 2)
         v = np.sum((y - np.mean(y)) ** 2)
         return 1 - u / v
