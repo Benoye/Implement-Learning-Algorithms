@@ -30,5 +30,4 @@ class OwnLinearRegression(object):
     def _group_prediction(y_hat):
         if y_hat > 0.5:
             return 1
-        else:
-            return 0
+        return 0
