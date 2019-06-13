@@ -2,7 +2,7 @@ from sklearn import datasets, linear_model
 from sklearn.model_selection import train_test_split
 from statsmodels.regression.linear_model import OLS
 
-from linear.least_squares import OwnLinearRegression
+from linear.successive_orthogonalization import OwnSuccessiveOrthogonalization
 
 RANDOM_STATE = 5
 
@@ -16,11 +16,11 @@ lr.fit(X_train, y_train)
 print("SCIKIT train score", lr.score(X_train, y_train))
 print("SCIKIT test score", lr.score(X_test, y_test))
 
-olr = OwnLinearRegression()
-olr.fit(X_train, y_train)
+oso = OwnSuccessiveOrthogonalization()
+oso.fit(X_train, y_train)
 
-print("OWN train score", olr.score(X_train, y_train))
-print("OWN test score", olr.score(X_test, y_test))
+print("OWN train score", oso.score(X_train, y_train))
+print("OWN test score", oso.score(X_test, y_test))
 
 ols = OLS(y_train, X_train)
 res = ols.fit()

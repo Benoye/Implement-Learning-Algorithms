@@ -21,10 +21,10 @@ class OwnLinearRegression(object):
         return 1 - u / v
 
     def predict(self, x):
-        return np.dot(x.T, self.beta)
+        return np.dot(x, self.beta)
 
     def _apply_model(self, x, model):
-        return self._group_prediction(np.dot(x.T, model))
+        return self._group_prediction(np.dot(x, model))
 
     @staticmethod
     def _group_prediction(y_hat):
