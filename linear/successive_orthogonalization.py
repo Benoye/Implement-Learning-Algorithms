@@ -5,6 +5,8 @@ from sklearn.preprocessing import StandardScaler
 class OwnSuccessiveOrthogonalization(object):
     """
     Gram-Schmidt procedure for Multiple Regression
+    Here only implemented for one coefficient beta
+    # TODO implement the single pass on Gram-Schmidt procedure
     """
 
     def __init__(self):
