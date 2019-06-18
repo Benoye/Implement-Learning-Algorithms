@@ -2,7 +2,8 @@ from sklearn import datasets, linear_model
 from sklearn.model_selection import train_test_split
 from statsmodels.regression.linear_model import OLS
 
-from linear.successive_orthogonalization import OwnSuccessiveOrthogonalization
+from linear.gram_schmidt_multiple_passes import OwnSuccessiveOrthogonalization
+from linear.gram_schmidt_single_pass import GramSchmidtProcedure
 
 RANDOM_STATE = 5
 
@@ -19,8 +20,11 @@ print("SCIKIT test score", lr.score(X_test, y_test))
 oso = OwnSuccessiveOrthogonalization()
 oso.fit(X_train, y_train)
 
-print("OWN train score", oso.score(X_train, y_train))
-print("OWN test score", oso.score(X_test, y_test))
+gsp = GramSchmidtProcedure()
+gsp.fit(X_train, y_train)
+
+print("OWN train score", gsp.score(X_train, y_train))
+print("OWN test score", gsp.score(X_test, y_test))
 
 ols = OLS(y_train, X_train)
 res = ols.fit()
